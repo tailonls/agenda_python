@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include "header.html" %}
+
+    </head>
+    <body>
+        <div class="container">
+            <h4>Meus agendamentos</h4>
+
+                <ul class="list-group" >
+                    {% for evento in eventos %}
+                        <li class="list-group-item" >{{ evento.titulo }} - {{ evento.get_data_evento_formatada }}</li>
+                    {% endfor %}
+                </ul>
+
+            {% include "footer.html" %}
+        </div>
+    </body>
+</html>
