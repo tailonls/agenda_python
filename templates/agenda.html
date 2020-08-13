@@ -13,8 +13,14 @@
                         <li class="list-group-item" >{{ evento.titulo }} - {{ evento.get_data_evento_formatada }}</li>
                     {% endfor %}
                 </ul>
-
-            {% include "footer.html" %}
+            <a href="add_evento/"><button type="submit" class="btn btn-primary">Adicionar evento</button></a>
         </div>
+        <br />
+
+        {% for message in messages %}
+            <strong> => </strong> {{message}} <br />
+        {% endfor %}
+
+        {% include "footer.html" %}
     </body>
 </html>
