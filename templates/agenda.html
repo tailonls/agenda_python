@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        {% include "header.html" %}
+<head>
+    {% include "header.html" %}
 
-    </head>
-    <body>
-        <div class="container">
-            <h4>Meus agendamentos</h4>
+</head>
+<body>
+    <div class="container">
+        <h4>Meus agendamentos</h4>
 
-                <ul class="list-group" >
-                    {% for evento in eventos %}
-                        <li class="list-group-item" >{{ evento.titulo }} - {{ evento.get_data_evento_formatada }}</li>
-                    {% endfor %}
-                </ul>
-            <a href="add_evento/"><button type="submit" class="btn btn-primary">Adicionar evento</button></a>
-        </div>
-        <br />
+        <ul class="list-group">
+            {% for evento in eventos %}
+            <li class="list-group-item">
+                {{ evento.titulo }} - {{ evento.get_data_evento_formatada }}
+                <a href="evento/?id={{ evento.id }}">Editar</a>
+                <a href="evento/delete/{{ evento.id }}/">Excluir</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="evento/">
+            <button type="submit" class="btn btn-primary">Adicionar evento</button>
+        </a>
+    </div>
+    <br/>
 
-        {% for message in messages %}
-            <strong> => </strong> {{message}} <br />
-        {% endfor %}
+    {% for message in messages %}
+        <strong> => </strong> {{message}} <br/>
+    {% endfor %}
 
-        {% include "footer.html" %}
-    </body>
+    {% include "footer.html" %}
+</body>
 </html>
